@@ -4,7 +4,6 @@
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(135deg, #bfe3ff 0%, #89caff 100%);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     padding: 20px;
   }
   
@@ -21,7 +20,7 @@
     box-sizing: border-box;
   }
   
-  .formTitle {
+  .loginCardTitle {
     font-size: 24px;
     font-weight: 700;
     color: #1a1a1a;
@@ -36,16 +35,16 @@
     flex-grow: 1;
   }
   
-  .inputGroup {
+  .loginFormGroup {
     margin-bottom: 16px;
   }
   
-  .inputGroup input {
+  .loginFormInput {
     width: 100%;
     padding: 18px 20px;
-    background-color: #f1f3f4; 
+    background-color: #f1f3f4;
     border: 1px solid transparent;
-    border-radius: 14px; 
+    border-radius: 14px;
     font-size: 16px;
     color: #1a1a1a;
     outline: none;
@@ -53,17 +52,17 @@
     transition: all 0.2s ease;
   }
   
-  .inputGroup input::placeholder {
+  .loginFormInput::placeholder {
     color: #80868b;
   }
   
-  .inputGroup input:focus {
+  .loginFormInput:focus {
     background-color: #ffffff;
     border-color: #6cb7ff;
     box-shadow: 0 0 0 4px rgba(108, 183, 255, 0.15);
   }
   
-  .hintText {
+  .loginCardTextHint {
     font-size: 13px;
     color: #70757a;
     line-height: 1.5;
@@ -71,7 +70,7 @@
     margin: 8px 0 32px 0;
   }
   
-  .continueButton {
+  .loginFormBtnSubmit {
     width: 100%;
     padding: 16px;
     background-color: #7cc1ff;
@@ -85,7 +84,7 @@
     margin-top: auto;
   }
   
-  .continueButton:hover {
+  .loginFormBtnSubmit:hover {
     background-color: #5caeff;
   }
   

@@ -1,0 +1,245 @@
+.chatPage {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+  .chatSidebar {
+    width: 360px;
+    min-width: 320px;
+    border-right: 1px solid #e9edef;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+  
+  .chatSidebarHeader {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid #f0f2f5;
+  }
+  
+  .chatSidebarTitle {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  
+  .chatSidebarForm {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .chatSidebarInputPhone {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #f1f3f4;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+  
+  .chatSidebarInputPhone:focus {
+    background-color: #ffffff;
+    border-color: #6cb7ff;
+  }
+  
+  .chatSidebarBtnCreate {
+    width: 100%;
+    padding: 12px;
+    background-color: #0084ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .chatSidebarBtnCreate:hover {
+    background-color: #0066cc;
+  }
+  
+  .chatSidebarList {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  .chatSidebarItem {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    gap: 14px;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+  }
+  
+  .chatSidebarItem:hover {
+    background-color: #f5f6f7;
+  }
+  
+  .chatSidebarItemActive {
+    background-color: #eff7ff;
+  }
+  
+  .chatSidebarAvatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #00cc96;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  
+  .chatSidebarInfo {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .chatSidebarName {
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 15px;
+    margin-bottom: 2px;
+  }
+  
+  .chatSidebarMessageLast {
+    font-size: 13px;
+    color: #70757a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .chatWindow {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+  
+  .chatWindowHeader {
+    height: 64px;
+    border-bottom: 1px solid #e9edef;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 14px;
+  }
+  
+  .chatWindowAvatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #00cc96;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  
+  .chatWindowNameCurrent {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1a1a1a;
+  }
+  
+  .chatWindowMessageArea {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #89caff;
+    padding: 24px 24px 0 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chatWindowPlaceholder {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    width: 290px;
+    padding: 24px;
+    border-radius: 20px;
+    text-align: center;
+    margin: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .chatWindowPlaceholderTitle {
+    margin: 0 0 8px 0;
+    color: #1a1a1a;
+    font-size: 16px;
+  }
+  
+  .chatWindowPlaceholderText {
+    margin: 0;
+    color: #70757a;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .chatWindowFooter {
+    padding: 16px 24px 24px 24px;
+    background-color: #89caff;
+  }
+  
+  .chatWindowInputBar {
+    background-color: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    padding: 6px 20px;
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .chatWindowInputMessage {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    font-size: 15px;
+    color: #1a1a1a;
+  }
+  
+  .chatWindowBtnSend {
+    background-color: #0084ff;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+  }
+  
+  .chatWindowBtnSend:hover {
+    background-color: #0066cc;
+  }
+  
