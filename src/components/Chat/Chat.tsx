@@ -1,6 +1,11 @@
 import styles from './Chat.module.css';
+import type { AuthData } from '../../types';
 
-function Chat() {
+type ChatProps = {
+  auth: AuthData;
+};
+
+function Chat({ auth }: ChatProps) {
   return (
     <div className={styles.chatPage}>
       
@@ -22,7 +27,7 @@ function Chat() {
           <div className={`${styles.chatSidebarItem} ${styles.chatSidebarItemActive}`}>
             <div className={styles.chatSidebarAvatar}>МА</div>
             <div className={styles.chatSidebarInfo}>
-              <div className={styles.chatSidebarName}>+7 999 123-45-67</div>
+              <div className={styles.chatSidebarName}>{auth.idInstance}</div>
               <div className={styles.chatSidebarMessageLast}>Нажмите, чтобы открыть переписку</div>
             </div>
           </div>
@@ -32,7 +37,7 @@ function Chat() {
       <main className={styles.chatWindow}>
         <header className={styles.chatWindowHeader}>
           <div className={styles.chatWindowAvatar}>МА</div>
-          <div className={styles.chatWindowNameCurrent}>+7 999 123-45-67</div>
+          <div className={styles.chatWindowNameCurrent}>{auth.idInstance}</div>
         </header>
 
         <div className={styles.chatWindowMessageArea}>
