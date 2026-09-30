@@ -10,7 +10,7 @@ function App() {
     return <Login onLogin={setAuth} />;
   }
 
-  return <Chat auth={auth} />;
+  return <Chat auth={auth} onLogout={() => setAuth(null)} />;
 }
 
 export default App;
