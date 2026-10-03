@@ -1,75 +1,45 @@
-# React + TypeScript + Vite
+# MAX Messenger Web Client Prototype (GREEN-API Integration)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Прототип веб-клиента мессенджера для обмена текстовыми сообщениями, разработанный на React + TypeScript в рамках тестового задания для **GREEN-API**. 
 
-Currently, two official plugins are available:
+Интерфейс приложения адаптирован под визуальный стиль мессенджера MAX (`web.max.ru`).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Технологический стек
+* **Фреймворк:** React 19 (TypeScript)
+* **Сборщик:** Vite
+* **Стилизация:** CSS-модули
+* **Работа с сетью:** Нативный Fetch API (async/await) без сторонних библиотек
 
-## React Compiler
+## Особенности и доработки
+* **Динамический хост API:** Адрес сервера шлюза вычисляется автоматически на основе первых четырех цифр введенного пользователем `ID Instance`. Базовый домен вынесен в переменные окружения (`.env`), настроен шаблон конфигурации `.env.example`.
+* **Архитектурная изоляция:** Логика сетевого слоя строго разделена по сущностям на модули `src/api/auth.ts` (инфраструктурные проверки) и `src/api/messages.ts` (транспорт сообщений).
+* **Кастомные хуки и хелперы:** Фоновый процесс Long Polling вынесен в специализированный хук-эффект `useMessagePolling.ts`. Логика парсинга сложных JSON-ответов от вебхуков изолирована в чистую функцию `parseIncomingMessage` в модуле утилит `src/utils/helpers.ts`.
+* **Улучшенный UX:** Реализовано состояние загрузки (`isLoading`) для кнопок и полей форм, добавлена валидация номера телефона получателя (строго 11 цифр, начало на `7`). Обработка сетевых ошибок выведена в изолированные адаптивные панели с автоматическим скрытием по таймеру и сбросом при фокусе на инпут. Добавлена кнопка выхода для сброса введенных ID и token для упрощения переключения на другой инстанс.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Архитектурные ограничения прототипа (Scope Limitations)
+* **Одночатовый режим:** В текущей версии приложения согласно ТЗ реализован сценарий работы с единственной активной сессией чата. Фоновый процесс опроса очереди (`Long Polling`) фильтрует и обрабатывает входящие вебхуки строго по совпадению поля `senderPhoneNumber` с текущим открытым `activeChatId`.
+* **Хранение состояний** Приложение не хранит состояния пользователя и ранее открытых чатов. 
+* **Актуальность предыдущих данных:** Приложение не получает и не хранит данные других чатов или предыдущих сообщений текущего чата.
 
-## Expanding the ESLint configuration
+## Локальный запуск
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+1. Убедитесь, что у вас установлена Node.js версии 22 LTS или выше.
+2. Клонируйте репозиторий, перейдите в папку проекта и переключитесь на рабочую ветку:
+   ```
+   git clone <ссылка-на-ваш-репозиторий>
+   cd green-api-chat
+   git checkout develop
+   ```
+3. Создайте файл `.env` в корне проекта на основе шаблона:
+   ```
+   cp .env.example .env
+   ```
+4. Установите зависимости:
+   ```
+   npm install
+   ```
+5. Запустите сервер для разработки:
+   ```
+   npm run dev
+   ```
+6. Откройте приложение в браузере по адресу, указанному в терминале (`http://localhost:5173`).

@@ -1,0 +1,115 @@
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #bfe3ff 0%, #89caff 100%);
+  padding: 20px;
+}
+
+.loginCard {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  min-height: 440px;
+  border-radius: 28px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.loginCardTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 36px 0;
+  letter-spacing: -0.3px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.loginFormGroup {
+  margin-bottom: 16px;
+}
+
+.loginFormInput {
+  width: 100%;
+  padding: 18px 20px;
+  background-color: #f1f3f4;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  font-size: 16px;
+  color: #1a1a1a;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.loginFormInput::placeholder {
+  color: #80868b;
+}
+
+.loginFormInput:focus {
+  background-color: #ffffff;
+  border-color: #6cb7ff;
+  box-shadow: 0 0 0 4px rgba(108, 183, 255, 0.15);
+}
+
+.loginCardTextHint {
+  font-size: 13px;
+  color: #70757a;
+  line-height: 1.5;
+  text-align: center;
+  margin: 8px 0 32px 0;
+}
+
+.loginFormBtnSubmit {
+  width: 100%;
+  padding: 16px;
+  background-color: #7cc1ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: auto;
+}
+
+.loginFormBtnSubmit:hover {
+  background-color: #5caeff;
+}
+
+.loginFormInput:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loginFormBtnSubmitLoading {
+  background-color: #a5d3ff;
+  cursor: not-allowed;
+}
+
+.loginFormBtnSubmit:disabled:hover {
+  background-color: #a5d3ff;
+}
+
+
+.loginFormError {
+  background-color: #fde8e8;
+  color: #e53e3e;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid #fbd5d5;
+}
